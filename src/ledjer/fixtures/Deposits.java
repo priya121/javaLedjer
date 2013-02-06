@@ -1,6 +1,6 @@
-package com.mjansen.ledjer.fixtures;
+package ledjer.fixtures;
 
-import com.mjansen.ledjer.Deposit;
+import ledjer.Deposit;
 
 public class Deposits {
 	private Deposit deposit;

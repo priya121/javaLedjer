@@ -1,6 +1,6 @@
-package com.mjansen.ledjer.fixtures;
+package ledjer.fixtures;
 
-import com.mjansen.ledjer.Ledger;
+import ledjer.Ledger;
 
 
 public class LedgerStatementGenerator {

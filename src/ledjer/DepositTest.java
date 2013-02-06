@@ -1,4 +1,4 @@
-package com.mjansen.ledjer;
+package ledjer;
 
 import static org.junit.Assert.*;
 

@@ -1,2 +1,2 @@
 |import|
-|com.mjansen.ledjer.fixtures|
+|ledjer.fixtures|

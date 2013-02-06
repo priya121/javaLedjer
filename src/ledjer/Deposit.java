@@ -1,15 +1,13 @@
-package com.mjansen.ledjer;
+package ledjer;
 
-public class Transaction {
-
+public class Deposit {
 	private int amount;
 	
-	public Transaction(int amount) {
+	public Deposit(int amount) {
 		this.amount = amount;
 	}
-	
+
 	public int getAmount() {
 		return amount;
 	}
-
 }
