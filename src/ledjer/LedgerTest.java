@@ -34,10 +34,29 @@ public class LedgerTest {
 	}
 	
 	@Test
+	public void paymentSubtractsFromBalance() {
+		Deposit deposit = new Deposit(100);
+		Payment payment = new Payment(50, "foo");
+		ledger.deposit(deposit);
+		ledger.payment(payment);
+		assertEquals(50, ledger.getBalance());
+	}
+	
+	@Test
 	public void statementIncludesDepositHistory() {
 		ledger.deposit(new Deposit(110));
 		ledger.deposit(new Deposit(200));
 		String expectedStatement = "Deposit $1.10\\nDeposit $2.00\\nTotal $3.10";
+		assertEquals(expectedStatement, ledger.statement());
+	}
+	
+	@Test
+	public void statementIncludesPaymentsAndDepositsHistory() {
+		ledger.deposit(new Deposit(1000));
+		ledger.payment(new Payment(500, "foo"));
+		ledger.payment(new Payment(100, "bar"));
+
+		String expectedStatement = "Deposit $10.00\\nPayment to foo ($5.00)\\nPayment to bar ($1.00)\\nTotal $4.00";
 		assertEquals(expectedStatement, ledger.statement());
 	}
 
