@@ -4,7 +4,7 @@ import ledjer.Ledger;
 
 
 public class LedgerStatementGenerator {
-	public LedgerStatementGenerator(int beginningBalance) {
+	public LedgerStatementGenerator() {
 		Context.ledger = new Ledger();
 	}
 	

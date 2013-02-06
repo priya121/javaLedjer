@@ -5,12 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-//EXERCISE - Ledger
-//Part 1
-//getBalance(), deposit(), statement(), max 10 trans
-//Part 2
-//pay()
-
 public class LedgerTest {
 
 	private Ledger ledger;

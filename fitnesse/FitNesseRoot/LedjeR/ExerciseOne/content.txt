@@ -1,6 +1,6 @@
 Ledgers can accept deposits. The balance of the ledger must be equal to the sum of all deposits.
 
-|script|ledger statement generator|0|
+|script|ledger statement generator|
 
 !|Deposits|
 |amount|balance?|
