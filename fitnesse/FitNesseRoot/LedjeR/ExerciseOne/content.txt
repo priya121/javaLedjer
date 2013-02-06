@@ -1,0 +1,13 @@
+Ledgers can accept deposits. The balance of the ledger must be equal to the sum of all deposits.
+
+|script|ledger statement generator|0|
+
+!|Deposits|
+|amount|balance?|
+|100|100|
+|200|300|
+
+A statement for a ledger displays each deposit on a separate line. The total is shown on the last line of the statement.
+
+|script|
+|check|generate statement|Deposit $1.00\nDeposit $2.00\nTotal $3.00|

@@ -1,0 +1,5 @@
+statement() prints in order
+chronological
+payment number
+
+Add dates to all deposits and payments, autogenerate payment numbers

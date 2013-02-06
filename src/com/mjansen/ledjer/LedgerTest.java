@@ -33,6 +33,13 @@ public class LedgerTest {
 	}
 	
 	@Test
+	public void limitNumberOfDepositsToTen() {
+		for (int i=0; i<11; i++)
+			ledger.deposit(new Deposit(100));
+		assertEquals(1000, ledger.getBalance());
+	}
+	
+	@Test
 	public void statementIncludesDepositHistory() {
 		ledger.deposit(new Deposit(110));
 		ledger.deposit(new Deposit(200));

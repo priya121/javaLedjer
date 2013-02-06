@@ -1,0 +1,8 @@
+!define TEST_SYSTEM {slim}
+!define COLLAPSE_SETUP {true}
+!define COLLAPSE_TEARDOWN {true}
+
+!path fitnesse-standalone.jar
+!path /Users/mike/projects/ledjer/bin
+
+!contents

@@ -1,0 +1,19 @@
+The ledger can accept payments as well as deposits. Payments are negative values that decrease the balance of the ledger. 
+
+|script|ledger statement generator|10000|
+
+!|Payments|
+|amount|payee|balance?|
+|100|Apple|9900|
+|200|Amazon|9700|
+|300|BBC|9400|
+
+!|Deposits|
+|amount|
+|100|
+
+
+A statement for a ledger displays each payment and deposit on a separate line. The total is shown on the last line of the statement.
+
+|script|
+|check|generate statement|Payment to Apple $1.00\nPayment to Amazon $2.00\nPayment to BBC $3.00\nDeposit $1.00\nTotal $95.00|

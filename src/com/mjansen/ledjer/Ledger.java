@@ -2,6 +2,7 @@ package com.mjansen.ledjer;
 
 public class Ledger {
 
+	private static final int MAX_NUMBER_OF_DEPOSITS = 10;
 	private Deposit[] deposits;
 	private int depositCount;
 	
@@ -19,7 +20,8 @@ public class Ledger {
 	}
 
 	public void deposit(Deposit deposit) {
-		deposits[depositCount++] = deposit;
+		if (depositCount < MAX_NUMBER_OF_DEPOSITS)
+			deposits[depositCount++] = deposit;
 	}
 	
 	public String statement() {

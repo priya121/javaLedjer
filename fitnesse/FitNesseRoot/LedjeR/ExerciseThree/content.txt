@@ -1,0 +1,3 @@
+Payment, Deposit -> Transaction
+
+Introduce a new class named Transaction. Payment and Deposit should subclass Transaction.
