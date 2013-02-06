@@ -2,27 +2,47 @@ package com.mjansen.ledjer;
 
 public class Ledger {
 
-	private Transaction[] transactions;
-	private int transactionCount;
+	private Deposit[] deposits;
+	private int depositCount;
 	
 	public Ledger() {
-		transactions = new Transaction[10];
-		transactionCount = 0;
+		deposits = new Deposit[10];
+		depositCount = 0;
 	}
 	
 	public int getBalance() {
 		int balance = 0;
-		for (int i=0; i < transactionCount; i++) {
-			balance += transactions[i].getAmount();
+		for (int i=0; i < depositCount; i++) {
+			balance += deposits[i].getAmount();
 		}
 		return balance;
 	}
 
-	public void deposit(int amount) {
-		transactions[transactionCount++] = new Transaction(amount);
+	public void deposit(Deposit deposit) {
+		deposits[depositCount++] = deposit;
 	}
-
-	public Transaction[] getTransactions() {
-		return transactions;
+	
+	public String statement() {
+		return formatDeposits() + formatTotal();
+	}
+	
+	private String formatDeposits() {
+		String statement = "";
+		for (int i=0; i < depositCount; i++)
+			statement += formatDeposit(deposits[i]);
+		return statement;
+	}
+	
+	private String formatDeposit(Deposit deposit) {
+		return "Deposit " + formattedAmount(deposit.getAmount()) +"\\n";
+	}
+	
+	private String formatTotal() {
+		return "Total " + formattedAmount(getBalance());
+	}
+	private String formattedAmount(int amount) {
+		int dollar = amount / 100;
+		int cents = amount % 100;
+		return String.format("$%1d.%02d", dollar, cents);
 	}
 }

@@ -21,22 +21,23 @@ public class LedgerTest {
 	}
 	
 	@Test
-	public void itStartsWithAZeroBalance() {
+	public void startsWithZeroBalance() {
 		assertEquals(0, ledger.getBalance());
 	}
-
-	
 	
 	@Test
 	public void depositAddsToBalance() {
-		ledger.deposit(100); // 1 dollar
+		Deposit deposit = new Deposit(100);
+		ledger.deposit(deposit); // 1 dollar
 		assertEquals(100, ledger.getBalance());
 	}
-
+	
 	@Test
-	public void depositCreatesTransaction() {
-		ledger.deposit(50);
-		Transaction[] transactions = ledger.getTransactions();
-		assertEquals(50, transactions[0].getAmount());
+	public void statementIncludesDepositHistory() {
+		ledger.deposit(new Deposit(110));
+		ledger.deposit(new Deposit(200));
+		String expectedStatement = "Deposit $1.10\\nDeposit $2.00\\nTotal $3.10";
+		assertEquals(expectedStatement, ledger.statement());
 	}
+
 }
