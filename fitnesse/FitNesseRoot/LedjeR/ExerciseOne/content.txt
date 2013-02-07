@@ -1,4 +1,6 @@
-Ledgers can accept deposits. The balance of the ledger must be equal to the sum of all deposits.
+!1 Deposits
+
+The ledger can accept deposits. Deposits increase the balance of the ledger.
 
 |script|ledger statement generator|
 

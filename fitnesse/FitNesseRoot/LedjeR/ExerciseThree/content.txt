@@ -1,3 +1,5 @@
 Payment, Deposit -> Transaction
 
-Introduce a new class named Transaction. Payment and Deposit should subclass Transaction.
+* Introduce a new abstract class named Transaction
+* Payment and Deposit should subclass Transaction
+* Remove duplication in Ledger where deposits and payments are stored and handled separately.

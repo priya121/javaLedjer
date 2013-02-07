@@ -1,4 +1,6 @@
-The ledger can accept payments as well as deposits. Payments are negative values that decrease the balance of the ledger. 
+!1 Payments
+
+The ledger can accept payments. Payments decrease the balance of the ledger. 
 
 |script|ledger statement generator|
 
