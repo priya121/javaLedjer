@@ -5,4 +5,4 @@ target
 fitnesse/FitNesseRoot/ErrorLogs/
 fitnesse/FitNesseRoot/RecentChanges/
 fitnesse/FitNesseRoot/files/testResults/
-
+*.zip
