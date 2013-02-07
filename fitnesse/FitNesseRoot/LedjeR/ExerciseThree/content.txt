@@ -1,5 +1,8 @@
-Payment, Deposit -> Transaction
+!1 Refactor!
 
-* Introduce a new abstract class named Transaction
-* Payment and Deposit should subclass Transaction
-* Remove duplication in Ledger where deposits and payments are stored and handled separately.
+Extract an abstract Transaction base class. Deposit and Payment should both be subclasses of Transaction.
+
+Make sure that the existing acceptance tests still pass!
+
+!include ExerciseOne
+!include ExerciseTwo
