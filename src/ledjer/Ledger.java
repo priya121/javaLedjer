@@ -52,16 +52,20 @@ public class Ledger {
 		return statement;
 	}
 	
+	private String newLine() {
+		return System.getProperty("line.separator");
+	}
+	
 	private String formatDeposit(Deposit deposit) {
-		return "Deposit " + formattedAmount(deposit.getAmount()) +"\\n";
+		return "Deposit: " + formattedAmount(deposit.getAmount()) + newLine();
 	}
 	
 	private String formatPayment(Payment payment) {
-		return "Payment to " + payment.getPayee() + " (" + formattedAmount(payment.getAmount()) +")\\n";
+		return "Payment to " + payment.getPayee() + ": (" + formattedAmount(payment.getAmount()) +")" + newLine();
 	}
 	
 	private String formatTotal() {
-		return "Total " + formattedAmount(getBalance());
+		return "Total: " + formattedAmount(getBalance());
 	}
 	private String formattedAmount(int amount) {
 		int dollar = amount / 100;

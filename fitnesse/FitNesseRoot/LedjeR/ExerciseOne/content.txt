@@ -9,5 +9,8 @@ Ledgers can accept deposits. The balance of the ledger must be equal to the sum 
 
 A statement for a ledger displays each deposit on a separate line. The total is shown on the last line of the statement.
 
-|script|
-|check|generate statement|Deposit $1.00\nDeposit $2.00\nTotal $3.00|
+|Query:Statement|
+|lineitem|
+|Deposit: $1.00|
+|Deposit: $2.00|
+|Total: $3.00|
