@@ -1,6 +1,6 @@
 package ledjer;
 
-public class Transaction {
+public abstract class Transaction {
 
 	private int amount;
 	
