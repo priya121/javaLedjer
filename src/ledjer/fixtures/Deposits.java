@@ -1,9 +1,10 @@
 package ledjer.fixtures;
 
 import ledjer.Deposit;
+import ledjer.Transaction;
 
 public class Deposits {
-	private Deposit deposit;
+	private Transaction deposit;
 	
 	public void setAmount(int amount) {
 		deposit = new Deposit(amount);

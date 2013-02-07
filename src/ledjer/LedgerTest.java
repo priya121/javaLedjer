@@ -21,7 +21,7 @@ public class LedgerTest {
 	
 	@Test
 	public void depositAddsToBalance() {
-		Deposit deposit = new Deposit(100);
+		Transaction deposit = new Deposit(100);
 		ledger.deposit(deposit); // 1 dollar
 		assertEquals(100, ledger.getBalance());
 	}
@@ -35,7 +35,7 @@ public class LedgerTest {
 	
 	@Test
 	public void paymentSubtractsFromBalance() {
-		Deposit deposit = new Deposit(100);
+		Transaction deposit = new Deposit(100);
 		Payment payment = new Payment(50, "foo");
 		ledger.deposit(deposit);
 		ledger.payment(payment);

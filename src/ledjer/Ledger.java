@@ -3,13 +3,13 @@ package ledjer;
 public class Ledger {
 
 	private static final int MAX_NUMBER_OF_DEPOSITS = 10;
-	private Deposit[] deposits;
+	private Transaction[] deposits;
 	private int depositCount;
 	private Payment[] payments;
 	private int paymentCount;
 	
 	public Ledger() {
-		deposits = new Deposit[10];
+		deposits = new Transaction[10];
 		depositCount = 0;
 		payments = new Payment[10];
 		paymentCount = 0;
@@ -24,7 +24,7 @@ public class Ledger {
 		return balance;
 	}
 
-	public void deposit(Deposit deposit) {
+	public void deposit(Transaction deposit) {
 		if (depositCount < MAX_NUMBER_OF_DEPOSITS)
 			deposits[depositCount++] = deposit;
 	}
@@ -56,7 +56,7 @@ public class Ledger {
 		return System.getProperty("line.separator");
 	}
 	
-	private String formatDeposit(Deposit deposit) {
+	private String formatDeposit(Transaction deposit) {
 		return "Deposit: " + formattedAmount(deposit.getAmount()) + newLine();
 	}
 	
