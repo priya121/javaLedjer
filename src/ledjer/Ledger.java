@@ -37,6 +37,24 @@ public class Ledger {
 		return statement;
 	}
 	
+	@Override
+	public boolean equals(Object object) {
+		if (!(object instanceof Ledger))
+			return false;
+		Ledger other = (Ledger) object;
+		return isTransactionHistoryEqual(other);
+	}
+
+	public boolean isTransactionHistoryEqual(Ledger other) {
+		if (transactions.size() != other.transactions.size())
+			return false;
+		for (int i = 0; i < transactions.size(); i++) {
+			if (!transactions.get(i).equals(other.transactions.get(i)))
+				return false;
+		}
+		return true;
+	}
+	
 	private void checkForAvailableFunds(Transaction payment) {
 		if (balance - payment.getAmount() < 0) {
 			throw new NegativeBalanceException();

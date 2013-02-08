@@ -1,6 +1,7 @@
 package ledjer;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -60,4 +61,51 @@ public class LedgerTest {
 	public void doesNotAllowNegativeBalance() {
 		ledger.pay(new Payment(1, "payee"));
 	}
+	
+    @Test
+    public void emptyLedgersAreEqual() {
+        assertEquals(ledger, new Ledger());
+    }
+    
+    @Test
+    public void equalityBasedOnInstanceOfTarget() {
+        assertFalse(ledger.equals(new Object()));
+    }
+    
+  @Test
+  public void ledgersNotEqualIfNumberOfTransactionsDifferent() {
+      Ledger ledgerTwo = new Ledger();
+      ledger.deposit(new Deposit(100));
+      assertFalse(ledger.equals(ledgerTwo));
+  }
+ 
+  @Test
+  public void ledgersNotEqualIfTransactionsAreNotEqual() {
+	  Deposit deposit = new Deposit(200);
+      Payment paymentOne = new Payment(100, "foo");
+      Payment paymentTwo = new Payment(100, "bar");
+	  Ledger ledgerTwo = new Ledger();
+      ledger.deposit(deposit);
+      ledgerTwo.deposit(deposit);
+      ledger.pay(paymentOne);
+      ledgerTwo.pay(paymentTwo);
+      
+      assertFalse(ledger.equals(ledgerTwo));
+  }
+  
+  @Test
+  public void ledgersAreEqualIfTransactionHistoryIsEqual() {
+	  Deposit deposit = new Deposit(200);
+      Payment paymentOne = new Payment(100, "foo");
+      Payment paymentTwo = new Payment(100, "bar");
+	  Ledger ledgerTwo = new Ledger();
+      ledger.deposit(deposit);
+      ledgerTwo.deposit(deposit);
+      ledger.pay(paymentOne);
+      ledger.pay(paymentTwo);
+      ledgerTwo.pay(paymentOne);
+      ledgerTwo.pay(paymentTwo);
+      
+      assertEquals(ledger, ledgerTwo);
+  }
 }
