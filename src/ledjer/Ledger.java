@@ -26,6 +26,9 @@ public class Ledger {
 
 	public void pay(Transaction payment) {
 		if (canAddTransaction()) {
+			if (balance - payment.getAmount() < 0) {
+				throw new NegativeBalanceException();
+			}
 			balance -= payment.getAmount();
 			addTransaction(payment);
 		}

@@ -73,4 +73,9 @@ public class LedgerTest {
 								   "Total: $4.00";
 		assertEquals(expectedStatement, ledger.statement());
 	}
+	
+	@Test(expected = NegativeBalanceException.class)
+	public void doesNotAllowNegativeBalance() {
+		ledger.pay(new Payment(1, "payee"));
+	}
 }

@@ -1,1 +1,11 @@
-throw on negative balance
+!1 Negative balance
+
+|script|ledger statement generator|
+
+!|Deposits|
+|amount|
+|1000|
+
+|script|
+|make payment|1001|and catch exception|
+|check| exception class | class ledjer.NegativeBalanceException |
