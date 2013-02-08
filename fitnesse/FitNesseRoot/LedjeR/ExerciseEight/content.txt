@@ -1,4 +1,4 @@
-support unlimited transactions using LinkedList
+Support unlimited transactions using LinkedList
 
 |script|empty ledger|
 
