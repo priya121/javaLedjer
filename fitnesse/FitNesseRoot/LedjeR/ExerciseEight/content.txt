@@ -1,17 +1,5 @@
 Support unlimited transactions using LinkedList
 
 |script|empty ledger|
-
-!|Deposits|
-|amount|balance?|
-|100||
-|200||
-|100||
-|200||
-|100||
-|200||
-|100||
-|200||
-|100||
-|200||
-|100|1600|
+|deposit|100|this many times|100|
+|check|balance|10000|

@@ -1,5 +1,6 @@
 package ledjer.fixtures;
 
+import ledjer.Deposit;
 import ledjer.Ledger;
 import ledjer.Payment;
 
@@ -13,6 +14,16 @@ public class EmptyLedger {
 	
 	public String generateStatement() {
 		return Context.ledger.statement();
+	}
+	
+	public void depositThisManyTimes(int depositAmount, int numberOfDeposits) {
+		for (int i=0; i < numberOfDeposits; i++) {
+			Context.ledger.deposit(new Deposit(depositAmount));
+		}
+	}
+	
+	public int balance() {
+		return Context.ledger.getBalance();
 	}
 	
 	public void makePaymentAndCatchException(int paymentAmount) {
