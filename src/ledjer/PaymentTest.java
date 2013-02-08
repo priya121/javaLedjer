@@ -23,4 +23,39 @@ public class PaymentTest {
 		Payment payment = new Payment(200, "amazon.com");
 		assertEquals("Payment to amazon.com: ($2.00)" + Transaction.newLine(), payment.asStatement());
 	}
+	
+	@Test
+	public void paymentsWithSameAmountAndPayeeAreEqual() {
+		Payment payment = new Payment(200, "amazon.com");
+		Payment paymentTwo = new Payment(200, "amazon.com");
+		assertEquals(payment, paymentTwo);
+	}
+	
+	@Test
+	public void paymentsWithSameAmountAndDifferentPayeeAreNotEqual() {
+		Payment payment = new Payment(200, "amazon.com");
+		Payment paymentTwo = new Payment(200, "newegg.com");
+		assertFalse(payment.equals(paymentTwo));
+	}
+	
+	@Test
+	public void paymentsWithDifferentAmountAndSamePayeeAreNotEqual() {
+		Payment payment = new Payment(200, "amazon.com");
+		Payment paymentTwo = new Payment(300, "amazon.com");
+		assertFalse(payment.equals(paymentTwo));
+	}
+	
+	@Test
+	public void notEqualIfNotInstanceOfPayment() {
+		Payment payment = new Payment(200, "amazon.com");
+		Object object = new Object();
+		assertFalse(payment.equals(object));
+	}
+	
+	@Test
+	public void clonedPaymentsAreEqual() {
+		Payment payment = new Payment(200, "amazon.com");
+		Payment clone = payment.clone();
+		assertEquals(payment, clone);
+	}
 }
