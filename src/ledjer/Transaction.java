@@ -1,6 +1,6 @@
 package ledjer;
 
-public abstract class Transaction {
+public abstract class Transaction implements Cloneable {
 
 	private int amount;
 	
@@ -22,5 +22,14 @@ public abstract class Transaction {
 	
 	public static String newLine() {
 		return System.getProperty("line.separator");
+	}
+	
+	@Override
+	protected Transaction clone() {
+		try {
+			return (Transaction)super.clone();
+		} catch (CloneNotSupportedException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

@@ -3,7 +3,7 @@ package ledjer;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Ledger {
+public class Ledger implements Cloneable {
 
 	private int balance;
 	private List<Transaction> transactions;
@@ -35,6 +35,15 @@ public class Ledger {
 		}
 		statement += formatTotal();
 		return statement;
+	}
+	
+	@Override
+	public Ledger clone() {
+		Ledger clone = new Ledger();
+		clone.balance = this.balance;
+		for (Transaction transaction : transactions)
+				clone.transactions.add((Transaction) transaction.clone());
+		return clone;
 	}
 	
 	@Override

@@ -2,6 +2,7 @@ package ledjer;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotSame;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -95,7 +96,7 @@ public class LedgerTest {
   
   @Test
   public void ledgersAreEqualIfTransactionHistoryIsEqual() {
-	  Deposit deposit = new Deposit(200);
+	  Deposit deposit = new Deposit(400);
       Payment paymentOne = new Payment(100, "foo");
       Payment paymentTwo = new Payment(100, "bar");
 	  Ledger ledgerTwo = new Ledger();
@@ -107,5 +108,19 @@ public class LedgerTest {
       ledgerTwo.pay(paymentTwo);
       
       assertEquals(ledger, ledgerTwo);
+  }
+  
+  @Test
+  public void transactionsAndBalanceClonedWhenCloningLedgers() throws CloneNotSupportedException {
+	  Deposit deposit = new Deposit(400);
+      Payment paymentOne = new Payment(100, "foo");
+      Payment paymentTwo = new Payment(100, "bar");
+      ledger.deposit(deposit);
+      ledger.pay(paymentOne);
+      ledger.pay(paymentTwo);
+      
+      assertEquals(ledger.getBalance(), ledger.clone().getBalance());
+      assertEquals(ledger, ledger.clone());
+      assertNotSame(ledger, ledger.clone());
   }
 }

@@ -26,6 +26,6 @@ public class Payment extends Transaction {
 	
 	@Override
 	public Payment clone() {
-		return new Payment(getAmount(), payee);
+		return (Payment) super.clone();
 	}
 }

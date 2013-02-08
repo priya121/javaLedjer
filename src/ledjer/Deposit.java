@@ -1,6 +1,6 @@
 package ledjer;
 
-public class Deposit extends Transaction implements Cloneable {
+public class Deposit extends Transaction {
 	public Deposit(int amount) {
 		super(amount);
 	}
@@ -12,7 +12,7 @@ public class Deposit extends Transaction implements Cloneable {
 	
 	@Override
 	public Deposit clone() {
-		return new Deposit(getAmount());
+		return (Deposit) super.clone();
 	}
 	
 	@Override
