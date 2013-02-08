@@ -26,9 +26,7 @@ public class Ledger {
 
 	public void pay(Transaction payment) {
 		if (canAddTransaction()) {
-			if (balance - payment.getAmount() < 0) {
-				throw new NegativeBalanceException();
-			}
+			checkForAvailableFunds(payment);
 			balance -= payment.getAmount();
 			addTransaction(payment);
 		}
@@ -46,6 +44,12 @@ public class Ledger {
 	
 	private boolean canAddTransaction() {
 		return transactionCount < MAX_NUMBER_OF_TRANSACTIONS;
+	}
+	
+	private void checkForAvailableFunds(Transaction payment) {
+		if (balance - payment.getAmount() < 0) {
+			throw new NegativeBalanceException();
+		}
 	}
 	
 	private Transaction addTransaction(Transaction transaction) {
