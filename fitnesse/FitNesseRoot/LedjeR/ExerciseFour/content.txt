@@ -5,7 +5,7 @@ pay() and deposit() take a Transaction as an argument. Payments and deposits are
 
 Maybe have a test that adds: deposit, payment, deposit. Ensure the statement shows them in the order that they are entered.
 
-|script|ledger statement generator|
+|script|empty ledger|
 
 !|Deposits|
 |amount|

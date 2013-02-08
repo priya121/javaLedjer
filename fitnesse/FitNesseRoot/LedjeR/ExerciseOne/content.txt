@@ -2,7 +2,7 @@
 
 The ledger can accept deposits. Deposits increase the balance of the ledger.
 
-|script|ledger statement generator|
+|script|empty ledger|
 
 !|Deposits|
 |amount|balance?|

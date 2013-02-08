@@ -4,10 +4,10 @@ import ledjer.Ledger;
 import ledjer.Payment;
 
 
-public class LedgerStatementGenerator {
+public class EmptyLedger {
 	private Class<? extends Exception> exceptionType;
 
-	public LedgerStatementGenerator() {
+	public EmptyLedger() {
 		Context.ledger = new Ledger();
 	}
 	

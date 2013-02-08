@@ -1,6 +1,6 @@
 !1 Negative balance
 
-|script|ledger statement generator|
+|script|empty ledger|
 
 !|Deposits|
 |amount|

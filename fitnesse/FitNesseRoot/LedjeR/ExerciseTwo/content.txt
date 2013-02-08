@@ -2,7 +2,7 @@
 
 The ledger can accept payments. Payments decrease the balance of the ledger. 
 
-|script|ledger statement generator|
+|script|empty ledger|
 
 !|Deposits|
 |amount|
