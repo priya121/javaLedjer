@@ -26,15 +26,6 @@ public class LedgerTest {
 	}
 	
 	@Test
-	public void limitsNumberOfTransactionsToTen() {
-		for (int i=0; i<6; i++) {
-			ledger.deposit(new Deposit(100));
-			ledger.pay(new Payment(50, "Somebody"));
-		}
-		assertEquals(250, ledger.getBalance());
-	}
-	
-	@Test
 	public void paymentSubtractsFromBalance() {
 		Transaction deposit = new Deposit(100);
 		Payment payment = new Payment(50, "foo");

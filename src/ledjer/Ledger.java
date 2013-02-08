@@ -1,16 +1,16 @@
 package ledjer;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Ledger {
 
 	private int balance;
-	private Transaction[] transactions;
-	private int transactionCount;
-	private static final int MAX_NUMBER_OF_TRANSACTIONS = 10;
+	private List<Transaction> transactions;
 	
 	public Ledger() {
 		balance = 0;
-		transactionCount = 0;
-		transactions = new Transaction[MAX_NUMBER_OF_TRANSACTIONS];
+		transactions = new LinkedList<Transaction>();
 	}
 	
 	public int getBalance() {
@@ -18,32 +18,23 @@ public class Ledger {
 	}
 
 	public void deposit(Transaction deposit) {
-		if (canAddTransaction()) {
-			balance += deposit.getAmount();
-			addTransaction(deposit);
-		}
+		balance += deposit.getAmount();
+		addTransaction(deposit);
 	}
 
 	public void pay(Transaction payment) {
-		if (canAddTransaction()) {
-			checkForAvailableFunds(payment);
-			balance -= payment.getAmount();
-			addTransaction(payment);
-		}
+		checkForAvailableFunds(payment);
+		balance -= payment.getAmount();
+		addTransaction(payment);
 	}
 
 	public String statement() {
 		String statement = "";
-		for (int i=0; i < transactionCount; i++) {
-			Transaction transaction = transactions[i];
+		for (Transaction transaction : transactions) {
 			statement += transaction.asStatement();
 		}
 		statement += formatTotal();
 		return statement;
-	}
-	
-	private boolean canAddTransaction() {
-		return transactionCount < MAX_NUMBER_OF_TRANSACTIONS;
 	}
 	
 	private void checkForAvailableFunds(Transaction payment) {
@@ -52,8 +43,8 @@ public class Ledger {
 		}
 	}
 	
-	private Transaction addTransaction(Transaction transaction) {
-		return transactions[transactionCount++] = transaction;
+	private void addTransaction(Transaction transaction) {
+		transactions.add(transaction);
 	}
 	
 	private String formatTotal() {

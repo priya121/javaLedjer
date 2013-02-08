@@ -1,2 +1,17 @@
-
 support unlimited transactions using LinkedList
+
+|script|empty ledger|
+
+!|Deposits|
+|amount|balance?|
+|100||
+|200||
+|100||
+|200||
+|100||
+|200||
+|100||
+|200||
+|100||
+|200||
+|100|1600|
