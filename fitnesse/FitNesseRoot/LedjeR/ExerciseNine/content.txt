@@ -1,3 +1,6 @@
-Ledger, Part 9
-Ledger.save() serializes to a file
-Ledger.load() deserializes
+Ledger Part Nine
+statement() prints in order
+chronological
+payment number
+
+Add dates to all deposits and payments, autogenerate payment numbers
