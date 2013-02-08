@@ -21,25 +21,17 @@ public class LedgerTest {
 	
 	@Test
 	public void depositAddsToBalance() {
-		Transaction deposit = new Deposit(100);
-		ledger.deposit(deposit); // 1 dollar
+		ledger.deposit(new Deposit(100));
 		assertEquals(100, ledger.getBalance());
 	}
 	
 	@Test
-	public void limitNumberOfTransactionsToTen() {
+	public void limitsNumberOfTransactionsToTen() {
 		for (int i=0; i<6; i++) {
 			ledger.deposit(new Deposit(100));
 			ledger.pay(new Payment(50, "Somebody"));
 		}
 		assertEquals(250, ledger.getBalance());
-	}
-	
-	@Test
-	public void limitNumberOfDepositsToTen() {
-		for (int i=0; i<11; i++)
-			ledger.deposit(new Deposit(100));
-		assertEquals(1000, ledger.getBalance());
 	}
 	
 	@Test
@@ -62,14 +54,13 @@ public class LedgerTest {
 	
 	@Test
 	public void statementIncludesPaymentsAndDepositsHistory() {
-		String newLine = System.getProperty("line.separator");
 		ledger.deposit(new Deposit(1000));
 		ledger.pay(new Payment(500, "foo"));
 		ledger.pay(new Payment(100, "bar"));
 
-		String expectedStatement = "Deposit: $10.00" + newLine + 
-								   "Payment to foo: ($5.00)" + newLine +
-								   "Payment to bar: ($1.00)" + newLine +
+		String expectedStatement = "Deposit: $10.00" + Transaction.newLine() + 
+								   "Payment to foo: ($5.00)" + Transaction.newLine() +
+								   "Payment to bar: ($1.00)" + Transaction.newLine() +
 								   "Total: $4.00";
 		assertEquals(expectedStatement, ledger.statement());
 	}

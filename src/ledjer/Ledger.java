@@ -10,7 +10,7 @@ public class Ledger {
 	public Ledger() {
 		balance = 0;
 		transactionCount = 0;
-		transactions = new Transaction[10];
+		transactions = new Transaction[MAX_NUMBER_OF_TRANSACTIONS];
 	}
 	
 	public int getBalance() {
