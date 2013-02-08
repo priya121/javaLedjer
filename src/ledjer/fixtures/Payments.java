@@ -22,6 +22,6 @@ public class Payments {
 	}
 	
 	public void execute() {
-		Context.ledger.payment(new Payment(amount, payee));
+		Context.ledger.pay(new Payment(amount, payee));
 	}
 }

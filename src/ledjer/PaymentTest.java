@@ -17,5 +17,10 @@ public class PaymentTest {
 		Payment payment = new Payment(100, "foo");
 		assertEquals("foo", payment.getPayee());
 	}
-
+	
+	@Test
+	public void createsStatement() {
+		Payment payment = new Payment(200, "amazon.com");
+		assertEquals("Payment to amazon.com: ($2.00)" + Transaction.newLine(), payment.asStatement());
+	}
 }

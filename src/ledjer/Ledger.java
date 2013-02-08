@@ -2,75 +2,54 @@ package ledjer;
 
 public class Ledger {
 
-	private static final int MAX_NUMBER_OF_DEPOSITS = 10;
-	private Transaction[] deposits;
-	private int depositCount;
-	private Payment[] payments;
-	private int paymentCount;
+	private int balance;
+	private Transaction[] transactions;
+	private int transactionCount;
+	private static final int MAX_NUMBER_OF_TRANSACTIONS = 10;
 	
 	public Ledger() {
-		deposits = new Transaction[10];
-		depositCount = 0;
-		payments = new Payment[10];
-		paymentCount = 0;
+		balance = 0;
+		transactionCount = 0;
+		transactions = new Transaction[10];
 	}
 	
 	public int getBalance() {
-		int balance = 0;
-		for (int i=0; i < depositCount; i++)
-			balance += deposits[i].getAmount();
-		for (int i=0; i < paymentCount; i++)
-			balance -= payments[i].getAmount();
 		return balance;
 	}
 
 	public void deposit(Transaction deposit) {
-		if (depositCount < MAX_NUMBER_OF_DEPOSITS)
-			deposits[depositCount++] = deposit;
+		if (canAddTransaction()) {
+			balance += deposit.getAmount();
+			addTransaction(deposit);
+		}
 	}
-	
 
-	public void payment(Payment payment) {
-		payments[paymentCount++] = payment;	
+	public void pay(Transaction payment) {
+		if (canAddTransaction()) {
+			balance -= payment.getAmount();
+			addTransaction(payment);
+		}
 	}
-	
+
 	public String statement() {
-		return formatDeposits() + formatPayments() + formatTotal();
-	}
-	
-	private String formatDeposits() {
 		String statement = "";
-		for (int i=0; i < depositCount; i++)
-			statement += formatDeposit(deposits[i]);
+		for (int i=0; i < transactionCount; i++) {
+			Transaction transaction = transactions[i];
+			statement += transaction.asStatement();
+		}
+		statement += formatTotal();
 		return statement;
 	}
 	
-	private String formatPayments() {
-		String statement = "";
-		for (int i=0; i < paymentCount; i++)
-			statement += formatPayment(payments[i]);
-		return statement;
+	private boolean canAddTransaction() {
+		return transactionCount < MAX_NUMBER_OF_TRANSACTIONS;
 	}
 	
-	private String newLine() {
-		return System.getProperty("line.separator");
-	}
-	
-	private String formatDeposit(Transaction deposit) {
-		return "Deposit: " + formattedAmount(deposit.getAmount()) + newLine();
-	}
-	
-	private String formatPayment(Payment payment) {
-		return "Payment to " + payment.getPayee() + ": (" + formattedAmount(payment.getAmount()) +")" + newLine();
+	private Transaction addTransaction(Transaction transaction) {
+		return transactions[transactionCount++] = transaction;
 	}
 	
 	private String formatTotal() {
-		return "Total: " + formattedAmount(getBalance());
+		return "Total: " + Transaction.formattedAmount(getBalance());
 	}
-	private String formattedAmount(int amount) {
-		int dollar = amount / 100;
-		int cents = amount % 100;
-		return String.format("$%1d.%02d", dollar, cents);
-	}
-
 }

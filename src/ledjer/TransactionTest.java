@@ -9,6 +9,10 @@ public class TransactionTest {
 		public TestTransaction(int amount) {
 			super(amount);
 		}
+		@Override
+		public String asStatement() {
+			return null;
+		}
 	}
 	
 	@Test
