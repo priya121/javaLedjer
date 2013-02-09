@@ -2,9 +2,10 @@ package ledjer;
 
 public abstract class Transaction implements Cloneable {
 
+	private static final int STARTING_NUMBER = 1;
 	private int amount;
 	private int number;
-	private static int nextNumber = 1;
+	private static int nextNumber = STARTING_NUMBER;
 	
 	public Transaction(int amount) {
 		this.amount = amount;
@@ -38,6 +39,10 @@ public abstract class Transaction implements Cloneable {
 		} catch (CloneNotSupportedException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public static void resetNextNumber() {
+		nextNumber = STARTING_NUMBER;
 	}
 
 }

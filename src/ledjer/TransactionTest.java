@@ -32,4 +32,13 @@ public class TransactionTest {
 		assertEquals(4, t3.getNumber());
 	}
 	
+	@Test
+	public void resetNextNumber() {
+		new TestTransaction(10);
+		new TestTransaction(10);
+		new TestTransaction(10);
+		Transaction.resetNextNumber();
+		assertEquals(1, new TestTransaction(10).getNumber());
+	}
+	
 }

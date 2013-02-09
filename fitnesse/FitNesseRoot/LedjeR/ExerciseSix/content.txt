@@ -4,6 +4,8 @@ nextNumber is static.
 
 |script|empty ledger|
 
+|script|reset transaction count|
+
 !|Deposits|
 |amount|number?|
 |100|1|
