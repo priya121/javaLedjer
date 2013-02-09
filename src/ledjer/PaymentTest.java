@@ -2,6 +2,11 @@ package ledjer;
 
 import static org.junit.Assert.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.junit.Test;
 
 public class PaymentTest {
@@ -20,8 +25,12 @@ public class PaymentTest {
 	
 	@Test
 	public void createsStatement() {
+		Calendar cal = new GregorianCalendar();
+		Date today = cal.getTime();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		Transaction.resetNextNumber();
 		Payment payment = new Payment(200, "amazon.com");
-		assertEquals("Payment to amazon.com: ($2.00)" + Transaction.newLine(), payment.asStatement());
+		assertEquals(format.format(today) + " #1 Payment to amazon.com: ($2.00)" + Transaction.newLine(), payment.asStatement());
 	}
 	
 	@Test

@@ -1,15 +1,22 @@
 package ledjer;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 public abstract class Transaction implements Cloneable {
 
 	private static final int STARTING_NUMBER = 1;
 	private int amount;
 	private int number;
+	private Date date;
 	private static int nextNumber = STARTING_NUMBER;
+	private static Calendar calendar = new GregorianCalendar();
 	
 	public Transaction(int amount) {
 		this.amount = amount;
 		this.number = nextNumber++;
+		this.date = calendar.getTime();
 	}
 	
 	public int getAmount() {
@@ -30,6 +37,10 @@ public abstract class Transaction implements Cloneable {
 
 	public int getNumber() {
 		return number;
+	}
+	
+	public Date getDate() {
+		return date;
 	}
 	
 	@Override

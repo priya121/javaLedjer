@@ -1,6 +1,12 @@
 package ledjer;
 
 import static org.junit.Assert.*;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.junit.Test;
 
 public class DepositTest {
@@ -12,8 +18,12 @@ public class DepositTest {
 	
 	@Test
 	public void createsStatement() {
+		Transaction.resetNextNumber();
+		Calendar cal = new GregorianCalendar();
+		Date today = cal.getTime();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 		Deposit deposit = new Deposit(2000);
-		assertEquals("Deposit: $20.00" + Transaction.newLine(), deposit.asStatement());
+		assertEquals(format.format(today) + " #1 Deposit: $20.00" + Transaction.newLine(), deposit.asStatement());
 	}
 	
 	@Test

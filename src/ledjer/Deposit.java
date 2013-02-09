@@ -1,5 +1,7 @@
 package ledjer;
 
+import java.text.SimpleDateFormat;
+
 public class Deposit extends Transaction {
 	public Deposit(int amount) {
 		super(amount);
@@ -7,7 +9,8 @@ public class Deposit extends Transaction {
 	
 	@Override
 	public String asStatement() {
-		return "Deposit: " + formattedAmount(getAmount()) + newLine();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		return format.format(getDate()) + " #" + getNumber() + " Deposit: " + formattedAmount(getAmount()) + newLine();
 	}
 	
 	@Override
