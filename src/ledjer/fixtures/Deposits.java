@@ -14,6 +14,10 @@ public class Deposits {
 		return Context.ledger.getBalance();
 	}
 	
+	public int number() {
+		return deposit.getNumber();
+	}
+	
 	public void execute() {
 		Context.ledger.deposit(deposit);
 	}

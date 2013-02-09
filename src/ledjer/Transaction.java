@@ -3,9 +3,12 @@ package ledjer;
 public abstract class Transaction implements Cloneable {
 
 	private int amount;
+	private int number;
+	private static int nextNumber = 1;
 	
 	public Transaction(int amount) {
 		this.amount = amount;
+		this.number = nextNumber++;
 	}
 	
 	public int getAmount() {
@@ -23,6 +26,10 @@ public abstract class Transaction implements Cloneable {
 	public static String newLine() {
 		return System.getProperty("line.separator");
 	}
+
+	public int getNumber() {
+		return number;
+	}
 	
 	@Override
 	protected Transaction clone() {
@@ -32,4 +39,5 @@ public abstract class Transaction implements Cloneable {
 			throw new RuntimeException(e);
 		}
 	}
+
 }

@@ -5,6 +5,7 @@ import ledjer.Payment;
 public class Payments {
 	private int amount;
 	private String payee;
+	private Payment payment;
 	
 	public Payments() {
 	}
@@ -21,7 +22,12 @@ public class Payments {
 		return Context.ledger.getBalance();
 	}
 	
+	public int number() {
+		return payment.getNumber();
+	}
+	
 	public void execute() {
-		Context.ledger.pay(new Payment(amount, payee));
+		payment = new Payment(amount, payee);
+		Context.ledger.pay(payment);
 	}
 }
