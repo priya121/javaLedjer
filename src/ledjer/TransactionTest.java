@@ -4,8 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
 
 import org.junit.Test;
 
@@ -56,5 +58,19 @@ public class TransactionTest {
 		assertEquals(format.format(today), format.format(transaction.getDate()));
 	}
 	
+	@Test
+	public void sortsTransactionsByDate() {
+		Transaction t1 = new TestTransaction(10);
+		Transaction t2 = new TestTransaction(10);
+		Transaction t3 = new TestTransaction(10);
+		LinkedList<Transaction> transactions = new LinkedList<Transaction>();
+		transactions.add(t3);
+		transactions.add(t2);
+		transactions.add(t1);
+		Collections.sort(transactions);
+		assertEquals(t1, transactions.get(0));
+		assertEquals(t2, transactions.get(1));
+		assertEquals(t3, transactions.get(2));
+	}
 	
 }

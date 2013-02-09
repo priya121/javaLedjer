@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public abstract class Transaction implements Cloneable {
+public abstract class Transaction implements Cloneable, Comparable<Transaction> {
 
 	private static final int STARTING_NUMBER = 1;
 	private int amount;
@@ -41,6 +41,16 @@ public abstract class Transaction implements Cloneable {
 	
 	public Date getDate() {
 		return date;
+	}
+	
+	public int compareTo(Transaction transaction) {
+		int sortValue = 0;
+		if (date.before(transaction.getDate())) {
+			sortValue = -1;		
+		} else {
+			sortValue = 1;
+		}
+		return sortValue;
 	}
 	
 	@Override
