@@ -11,7 +11,6 @@ public abstract class Transaction implements Cloneable, Serializable, Comparable
 	private static final long serialVersionUID = 1L;
 	private static final int STARTING_NUMBER = 1;
 	private int amount;
-	private int number;
 	private Date date;
 	private static int nextNumber = STARTING_NUMBER;
 	private static Calendar calendar = new GregorianCalendar();

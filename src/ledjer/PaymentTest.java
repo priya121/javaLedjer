@@ -34,7 +34,6 @@ public class PaymentTest {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 		Transaction.resetNextNumber();
 		Payment payment = new Payment(200, "amazon.com");
-		assertEquals("1. Payment to amazon.com: ($2.00)" + Transaction.newLine(), payment.asStatement());
 		assertEquals(format.format(today) + " 1. Payment to amazon.com: ($2.00)" + Transaction.newLine(), payment.asStatement());
 	}
 	
