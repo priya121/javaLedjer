@@ -1,9 +1,6 @@
 package ledjer;
 
 public class Deposit extends Transaction {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public Deposit(int amount) {
@@ -12,7 +9,7 @@ public class Deposit extends Transaction {
 	
 	@Override
 	public String asStatement() {
-		return "Deposit: " + formattedAmount(getAmount()) + newLine();
+		return this.number + ". Deposit: " + formattedAmount(getAmount()) + newLine();
 	}
 	
 	@Override

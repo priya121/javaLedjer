@@ -15,7 +15,7 @@ public class Payment extends Transaction {
 	
 	@Override
 	public String asStatement() {
-		return "Payment to " + getPayee() + ": (" + formattedAmount(getAmount()) +")" + Transaction.newLine();
+		return number + ". Payment to " + getPayee() + ": (" + formattedAmount(getAmount()) +")" + Transaction.newLine();
 	}
 	
 	@Override

@@ -13,6 +13,6 @@ A statement for a ledger displays each deposit on a separate line. The total is 
 
 |Query:Statement|
 |lineitem|
-|Deposit: $1.00|
-|Deposit: $2.00|
+|1. Deposit: $1.00|
+|2. Deposit: $2.00|
 |Total: $3.00|

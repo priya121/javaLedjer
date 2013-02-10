@@ -18,6 +18,7 @@ public class TransactionTest {
 	
 	@Test
 	public void constructsTransaction() {
+		Transaction.resetNextNumber();
 		Transaction transaction = new TestTransaction(1000);
 		assertEquals(1000, transaction.getAmount());
 		assertEquals(1, transaction.getNumber());

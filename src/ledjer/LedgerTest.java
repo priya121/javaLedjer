@@ -13,6 +13,7 @@ public class LedgerTest {
 	@Before
 	public void setup() {
 		ledger = new Ledger();
+		Transaction.resetNextNumber();
 	}
 	
 	@Test
@@ -40,7 +41,7 @@ public class LedgerTest {
 		String newLine = System.getProperty("line.separator");
 		ledger.deposit(new Deposit(110));
 		ledger.deposit(new Deposit(200));
-		String expectedStatement = "Deposit: $1.10" + newLine + "Deposit: $2.00" + newLine + "Total: $3.10";
+		String expectedStatement = "1. Deposit: $1.10" + newLine + "2. Deposit: $2.00" + newLine + "Total: $3.10";
 		assertEquals(expectedStatement, ledger.statement());
 	}
 	
@@ -50,9 +51,9 @@ public class LedgerTest {
 		ledger.pay(new Payment(500, "foo"));
 		ledger.pay(new Payment(100, "bar"));
 
-		String expectedStatement = "Deposit: $10.00" + Transaction.newLine() + 
-								   "Payment to foo: ($5.00)" + Transaction.newLine() +
-								   "Payment to bar: ($1.00)" + Transaction.newLine() +
+		String expectedStatement = "1. Deposit: $10.00" + Transaction.newLine() + 
+								   "2. Payment to foo: ($5.00)" + Transaction.newLine() +
+								   "3. Payment to bar: ($1.00)" + Transaction.newLine() +
 								   "Total: $4.00";
 		assertEquals(expectedStatement, ledger.statement());
 	}

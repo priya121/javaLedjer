@@ -2,9 +2,14 @@ package ledjer;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class PaymentTest {
+	@Before
+	public void setup() {
+		Transaction.resetNextNumber();
+	}
 
 	@Test
 	public void holdsAnAmount() {
@@ -21,7 +26,7 @@ public class PaymentTest {
 	@Test
 	public void createsStatement() {
 		Payment payment = new Payment(200, "amazon.com");
-		assertEquals("Payment to amazon.com: ($2.00)" + Transaction.newLine(), payment.asStatement());
+		assertEquals("1. Payment to amazon.com: ($2.00)" + Transaction.newLine(), payment.asStatement());
 	}
 	
 	@Test

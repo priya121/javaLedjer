@@ -3,12 +3,13 @@ package ledjer.fixtures;
 import ledjer.Deposit;
 import ledjer.Ledger;
 import ledjer.Payment;
-
+import ledjer.Transaction;
 
 public class EmptyLedger {
 	private Class<? extends Exception> exceptionType;
 
 	public EmptyLedger() {
+		Transaction.resetNextNumber();
 		Context.ledger = new Ledger();
 	}
 	

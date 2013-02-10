@@ -1,9 +1,15 @@
 package ledjer;
 
 import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 
 public class DepositTest {
+	@Before
+	public void setup() {
+		Transaction.resetNextNumber();
+	}
+	
 	@Test
 	public void holdsAnAmount() {
 		Deposit deposit = new Deposit(1000);
@@ -13,7 +19,7 @@ public class DepositTest {
 	@Test
 	public void createsStatement() {
 		Deposit deposit = new Deposit(2000);
-		assertEquals("Deposit: $20.00" + Transaction.newLine(), deposit.asStatement());
+		assertEquals("1. Deposit: $20.00" + Transaction.newLine(), deposit.asStatement());
 	}
 	
 	@Test
@@ -54,5 +60,4 @@ public class DepositTest {
 		
 		assertEquals(deposit, clone);
 	}
-	
 }
