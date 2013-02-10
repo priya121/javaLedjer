@@ -1,6 +1,11 @@
 package ledjer;
 
 public class Deposit extends Transaction {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Deposit(int amount) {
 		super(amount);
 	}

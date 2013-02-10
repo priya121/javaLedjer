@@ -1,8 +1,7 @@
 package ledjer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.*;
+import java.io.File;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -122,5 +121,28 @@ public class LedgerTest {
       assertEquals(ledger.getBalance(), ledger.clone().getBalance());
       assertEquals(ledger, ledger.clone());
       assertNotSame(ledger, ledger.clone());
+  }
+  
+  @Test
+  public void savesToFile() {
+	  ledger.deposit(new Deposit(1000));
+	  ledger.pay(new Payment(500, "Joe"));
+	  ledger.save();
+	  assertTrue(new File("ledger.dump").exists());
+  }
+
+  @Test
+  public void loads() {
+	  ledger.deposit(new Deposit(1000));
+	  ledger.pay(new Payment(500, "Joe"));
+	  String statement = ledger.statement();
+	  String ledgerString = ledger.toString();
+	  ledger.save();
+	  ledger = null;
+	  System.gc();
+	  
+	  ledger = Ledger.load();
+	  assertEquals(statement, ledger.statement());
+	  assertFalse(ledgerString.equals(ledger.toString()));
   }
 }

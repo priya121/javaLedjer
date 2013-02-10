@@ -1,6 +1,7 @@
 package ledjer;
 
 public class Payment extends Transaction {
+	private static final long serialVersionUID = 1L;
 	private String payee;
 	
 	public Payment(int amount, String payee) {

@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class TransactionTest {
 	private class TestTransaction extends Transaction {
+		private static final long serialVersionUID = 1L;
 		public TestTransaction(int amount) {
 			super(amount);
 		}

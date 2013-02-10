@@ -1,7 +1,9 @@
 package ledjer;
 
-public abstract class Transaction implements Cloneable {
+import java.io.Serializable;
 
+public abstract class Transaction implements Cloneable, Serializable {
+	private static final long serialVersionUID = 1L;
 	private static final int STARTING_NUMBER = 1;
 	private int amount;
 	private int number;

@@ -1,10 +1,11 @@
 package ledjer;
 
+import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Ledger implements Cloneable {
-
+public class Ledger implements Cloneable, Serializable {
+	private static final long serialVersionUID = 1L;
 	private int balance;
 	private List<Transaction> transactions;
 	
@@ -76,5 +77,30 @@ public class Ledger implements Cloneable {
 	
 	private String formatTotal() {
 		return "Total: " + Transaction.formattedAmount(getBalance());
+	}
+
+	public void save() {
+		try {
+			ObjectOutputStream output = 
+					new ObjectOutputStream(
+							new FileOutputStream("ledger.dump"));
+			output.writeObject(this);
+			output.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		} 
+	}
+	
+	public static Ledger load() {
+		try {
+			ObjectInputStream input = 
+					new ObjectInputStream(
+					new FileInputStream("ledger.dump"));
+			Ledger result = (Ledger) input.readObject();
+			input.close();
+			return result;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 }
