@@ -1,27 +1,34 @@
 package ledjer;
 
 import static org.junit.Assert.*;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.Before;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 
 public class DepositTest {
 	@Before
 	public void setup() {
 		Transaction.resetNextNumber();
 	}
-	
 	@Test
 	public void holdsAnAmount() {
 		Deposit deposit = new Deposit(1000);
 		assertEquals(1000, deposit.getAmount());
 	}
-	
 	@Test
 	public void createsStatement() {
+		Transaction.resetNextNumber();
+		Calendar cal = new GregorianCalendar();
+		Date today = cal.getTime();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 		Deposit deposit = new Deposit(2000);
-		assertEquals("1. Deposit: $20.00" + Transaction.newLine(), deposit.asStatement());
+		assertEquals(format.format(today) + " 1. Deposit: $20.00" + Transaction.newLine(), deposit.asStatement());
 	}
-	
+
 	@Test
 	public void implementsCloneable() {
 		Deposit deposit = new Deposit(3000);

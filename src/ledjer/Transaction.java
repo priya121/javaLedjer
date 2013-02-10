@@ -1,17 +1,25 @@
 package ledjer;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
-public abstract class Transaction implements Cloneable, Serializable {
+public abstract class Transaction implements Cloneable, Serializable, Comparable<Transaction> {
+
 	protected int number;
 	private static final long serialVersionUID = 1L;
 	private static final int STARTING_NUMBER = 1;
 	private int amount;
+	private int number;
+	private Date date;
 	private static int nextNumber = STARTING_NUMBER;
+	private static Calendar calendar = new GregorianCalendar();
 	
 	public Transaction(int amount) {
 		this.amount = amount;
 		this.number = nextNumber++;
+		this.date = calendar.getTime();
 	}
 	
 	public int getAmount() {
@@ -32,6 +40,20 @@ public abstract class Transaction implements Cloneable, Serializable {
 
 	public int getNumber() {
 		return number;
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+	
+	public int compareTo(Transaction transaction) {
+		int sortValue = 0;
+		if (date.before(transaction.getDate())) {
+			sortValue = -1;		
+		} else {
+			sortValue = 1;
+		}
+		return sortValue;
 	}
 	
 	@Override

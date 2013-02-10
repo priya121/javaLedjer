@@ -1,5 +1,7 @@
 package ledjer;
 
+import java.text.SimpleDateFormat;
+
 public class Deposit extends Transaction {
 	private static final long serialVersionUID = 1L;
 
@@ -9,7 +11,8 @@ public class Deposit extends Transaction {
 	
 	@Override
 	public String asStatement() {
-		return this.number + ". Deposit: " + formattedAmount(getAmount()) + newLine();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		return format.format(getDate()) + " " + getNumber() + ". Deposit: " + formattedAmount(getAmount()) + newLine();
 	}
 	
 	@Override

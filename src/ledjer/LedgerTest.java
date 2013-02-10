@@ -3,17 +3,32 @@ package ledjer;
 import static org.junit.Assert.*;
 import java.io.File;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import org.junit.Before;
 import org.junit.Test;
 
 public class LedgerTest {
 
 	private Ledger ledger;
+	private Calendar cal;
+	private Date today;
+	private SimpleDateFormat format;
 	
 	@Before
 	public void setup() {
 		ledger = new Ledger();
 		Transaction.resetNextNumber();
+		cal = new GregorianCalendar();
+		today = cal.getTime();
+		format = new SimpleDateFormat("yyyy/MM/dd");
+	}
+	
+	private String todaysDate() {
+		return format.format(today);
 	}
 	
 	@Test
@@ -37,23 +52,14 @@ public class LedgerTest {
 	}
 	
 	@Test
-	public void statementIncludesDepositHistory() {
-		String newLine = System.getProperty("line.separator");
-		ledger.deposit(new Deposit(110));
-		ledger.deposit(new Deposit(200));
-		String expectedStatement = "1. Deposit: $1.10" + newLine + "2. Deposit: $2.00" + newLine + "Total: $3.10";
-		assertEquals(expectedStatement, ledger.statement());
-	}
-	
-	@Test
 	public void statementIncludesPaymentsAndDepositsHistory() {
 		ledger.deposit(new Deposit(1000));
 		ledger.pay(new Payment(500, "foo"));
 		ledger.pay(new Payment(100, "bar"));
 
-		String expectedStatement = "1. Deposit: $10.00" + Transaction.newLine() + 
-								   "2. Payment to foo: ($5.00)" + Transaction.newLine() +
-								   "3. Payment to bar: ($1.00)" + Transaction.newLine() +
+		String expectedStatement = todaysDate() + " 1. Deposit: $10.00" + Transaction.newLine() + 
+								   todaysDate() + " 2. Payment to foo: ($5.00)" + Transaction.newLine() +
+								   todaysDate() + " 3. Payment to bar: ($1.00)" + Transaction.newLine() +
 								   "Total: $4.00";
 		assertEquals(expectedStatement, ledger.statement());
 	}
