@@ -3,6 +3,6 @@
 !define COLLAPSE_TEARDOWN {true}
 
 !path fitnesse-standalone.jar
-!path ../target/classes
+!path ../bin
 
 !contents

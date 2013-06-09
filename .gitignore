@@ -1,9 +1,10 @@
-.classpath
+.idea/
+ledjer.iml
 .metadata
-.project
 target
 fitnesse/FitNesseRoot/ErrorLogs/
 fitnesse/FitNesseRoot/RecentChanges/
 fitnesse/FitNesseRoot/files/testResults/
 *.zip
 *.dump
+/bin
