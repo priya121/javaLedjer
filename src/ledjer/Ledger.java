@@ -16,6 +16,6 @@ public class Ledger {
 	}
 
 	public String statement() {
-		return null;
+		return "";
 	}
 }

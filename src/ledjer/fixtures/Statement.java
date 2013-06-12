@@ -1,6 +1,7 @@
 package ledjer.fixtures;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Statement {
@@ -9,11 +10,15 @@ public class Statement {
 	}
 	
 	public List<Object> query() {
-		// Hint: query the Context.ledger for the statement
-		// The statement should contain one deposit per line
-		// Separate each deposit (and the total) with a new line
-		// A good regex for splitting on newlines is "\\r?\\n"
+		String statement = Context.ledger.statement();
+		String[] rows = statement.split("\\r?\\n");
 		List<Object> list = new ArrayList<Object>();
+
+		for (String row : rows)	{
+			List<Object> lineitem = new ArrayList<Object>();
+			lineitem.add(Arrays.asList(new String[] {"lineitem", row}));
+			list.add(lineitem);
+		}
 		return list;
 	}
 }

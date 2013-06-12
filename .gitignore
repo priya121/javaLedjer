@@ -7,4 +7,5 @@ fitnesse/FitNesseRoot/RecentChanges/
 fitnesse/FitNesseRoot/files/testResults/
 *.zip
 *.dump
+/.idea
 /bin
