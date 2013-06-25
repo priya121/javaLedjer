@@ -15,7 +15,7 @@ Now load the ledger and make sure it only has the first two transactions.
 |script|
 |load|
 
-|Query:Statement|
+|Ordered Query:Statement|
 |lineitem|
 |Jan 4, 2013 1. Deposit: $10.00|
 |Feb 5, 2013 2. Payment to Apple: ($5.00)|

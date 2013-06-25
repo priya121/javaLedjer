@@ -16,7 +16,7 @@ The ledger can accept payments. Payments decrease the balance of the ledger.
 
 A statement for a ledger displays each payment and deposit on a separate line. The total is shown on the last line of the statement.
 
-|Query:Statement|
+|Ordered Query:Statement|
 |lineitem|
 |Deposit: $100.00|
 |Payment to Apple: ($1.00)|
