@@ -2,18 +2,17 @@ ledjer
 ======
 
 Ledjer - exercises for Java training course
+Clone it somewhere on your disk and swtich to the start branch,
+then create your own branch based on start.
 
-== Opening in Eclipse
-Install EGit plugin
+git clone https://github.com/8thlight/ledjer
+git checkout start
+git checkout -b <your name>
 
-DOESN'T WORK...
+== Opening in Eclipse (Luna)
 * create a new workspace
-* create a new Project
-* File->Import..., General->Existing Projects into Workspace
+* File->Import...-> Maven -> Existing Maven project -> Point the Root directory to your folder -> finsish
 
-== Adding Junit
-* if after opening the project for the first time in eclipse, you may be missing the JUnit dependency
- * Properties->Java Build Path->Add Library..., choose JUnit 4
 
 == Build and run tests using maven
 $ mvn test
