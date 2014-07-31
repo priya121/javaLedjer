@@ -1,11 +1,26 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
 .idea/
-ledjer.iml
+*.iml
+*.iws
+
+# Mac
+.DS_Store
 .metadata
-target
+
+# Maven
+log/
+target/
+
+#Fitnesse
 fitnesse/FitNesseRoot/ErrorLogs/
 fitnesse/FitNesseRoot/RecentChanges/
 fitnesse/FitNesseRoot/files/testResults/
+
 *.zip
 *.dump
-/.idea
-/bin
+
