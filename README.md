@@ -19,7 +19,7 @@ Make sure you have the follwoing installed:
   * Maven 3 http://maven.apache.org/download.cgi
   * Eclipse IDE for Java Developers - Luna
 
-To tests that you have the requirements installed and configured correctly, make sure you get the following outputs:
+To test that you have the requirements installed and configured correctly, make sure you get the following outputs:
 
 Java:
 $ java -version
@@ -42,16 +42,16 @@ The versions on your system should at most differ in their _minor version_.
 == Importing ledjer into Eclipse
 When you open Eclipse for the first time it will ask you where to place its "workspace".
 This is only relevant when creating new projects from within Eclipse.
-For this excercise its precise location is not critical so simply accept Eclipe's default.
+For this excercise its precise location is not critical so simply accept Eclipse's default.
 
-Importing ledjer into Eclipse is fairly easy:
+To import ledjer into Eclipse:
 File > Import > Maven > Existing Maven Project
 In the input field for the _Root Directory_ navigate to the ledjer folder.
 Then proceed to select the pom.xml file in _Projects:_ box.
 Hit _Finish_ as the last step.
 
 == Build and run tests using Eclipse
-To run all the tests, right-click on the top-leve _ledjer_ folder and click _Run as_ and then _JUnit test_.
+To run all the tests, right-click on the top-level _ledjer_ folder and click _Run as_ and then _JUnit test_.
 That will recompile the classes and, assuming there are no compile errors, run the JUnit tests.
 
 
