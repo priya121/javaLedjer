@@ -1,5 +1,5 @@
 ledjer
-======
+######
 
 Ledjer - exercises for Java training course
 Clone it somewhere on your disk and swtich to the start branch,
@@ -9,11 +9,11 @@ git clone https://github.com/8thlight/ledjer
 git checkout start
 git checkout -b <your name>
 
-== Opening in Eclipse (Luna)
+## Opening in Eclipse (Luna)
 * create a new workspace
 * File->Import...-> Maven -> Existing Maven project -> Point the Root directory to your folder -> finsish
 
-== Requirements
+## Requirements
 Make sure you have the follwoing installed:
   * at least Java 7
   * Maven 3 http://maven.apache.org/download.cgi
@@ -39,7 +39,7 @@ OS name: "mac os x", version: "10.9.5", arch: "x86_64", family: "mac"
 The versions on your system should at most differ in their _minor version_.
 
 
-== Importing ledjer into Eclipse
+## Importing ledjer into Eclipse
 When you open Eclipse for the first time it will ask you where to place its "workspace".
 This is only relevant when creating new projects from within Eclipse.
 For this excercise its precise location is not critical so simply accept Eclipse's default.
@@ -50,8 +50,6 @@ In the input field for the _Root Directory_ navigate to the ledjer folder.
 Then proceed to select the pom.xml file in _Projects:_ box.
 Hit _Finish_ as the last step.
 
-== Build and run tests using Eclipse
+## Build and run tests using Eclipse
 To run all the tests, right-click on the top-level _ledjer_ folder and click _Run as_ and then _JUnit test_.
 That will recompile the classes and, assuming there are no compile errors, run the JUnit tests.
-
-
