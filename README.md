@@ -4,8 +4,10 @@ ledjer
 Ledjer - exercises for Java training course
 Clone it somewhere on your disk, then create your own branch.
 
+```
 git clone https://github.com/8thlight/ledjer
-git checkout -b <your name>
+git checkout -b <your username>
+```
 
 ## Opening in Eclipse (Luna)
 * create a new workspace
