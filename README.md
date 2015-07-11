@@ -1,17 +1,10 @@
-ledjer
-######
-
-Ledjer - exercises for Java training course
-Clone it somewhere on your disk, then create your own branch.
+#Ledjer
+To get started, clone it, then create your own branch with a unique name.
 
 ```
 git clone https://github.com/8thlight/ledjer
 git checkout -b <your username>
 ```
-
-## Opening in Eclipse (Luna)
-* create a new workspace
-* File->Import...-> Maven -> Existing Maven project -> Point the Root directory to your folder -> finsish
 
 ## Requirements
 Make sure you have the follwoing installed:
@@ -36,13 +29,13 @@ Java home: /Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre
 Default locale: en_US, platform encoding: US-ASCII
 OS name: "mac os x", version: "10.9.5", arch: "x86_64", family: "mac"
 
-The versions on your system should at most differ in their _minor version_.
+The versions on your system should differ only in their _minor version_ (that's the last number, i.e., 0_45 for Java above).
 
 
 ## Importing ledjer into Eclipse
 When you open Eclipse for the first time it will ask you where to place its "workspace".
 This is only relevant when creating new projects from within Eclipse.
-For this excercise its precise location is not critical so simply accept Eclipse's default.
+For this excercise its precise location is not critical, so simply accept Eclipse's default.
 
 To import ledjer into Eclipse:
 File > Import > Maven > Existing Maven Project
