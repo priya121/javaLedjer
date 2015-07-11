@@ -2,11 +2,9 @@ ledjer
 ######
 
 Ledjer - exercises for Java training course
-Clone it somewhere on your disk and swtich to the start branch,
-then create your own branch based on start.
+Clone it somewhere on your disk, then create your own branch.
 
 git clone https://github.com/8thlight/ledjer
-git checkout start
 git checkout -b <your name>
 
 ## Opening in Eclipse (Luna)
