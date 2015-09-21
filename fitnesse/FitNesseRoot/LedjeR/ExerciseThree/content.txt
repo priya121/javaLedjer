@@ -1,8 +1,0 @@
-!1 Refactor!
-
-Extract a Transaction base class. Deposit and Payment should both be subclasses of Transaction.
-
-Make sure that the existing acceptance tests still pass!
-
-!include ExerciseOne
-!include ExerciseTwo
