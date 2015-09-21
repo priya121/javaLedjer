@@ -4,12 +4,12 @@ Feature: Exercise 1
 
   Scenario: Deposits.
     Given an empty ledger
-    When a deposit of 100 is made
-    And a deposit of 200 is made
-    Then the balance is 300
+    When a deposit of 100p is made
+    And a deposit of 200p is made
+    Then the balance is 300p
     And the statement contains
     """
-    Deposit: $1.00
-    Deposit: $2.00
-    Total: $3.00
+    Deposit: £1.00
+    Deposit: £2.00
+    Total: £3.00
     """

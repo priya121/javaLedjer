@@ -3,5 +3,5 @@ Feature: Exercise 8
 
   Scenario: Many transactions
     Given an empty ledger
-    When 100 deposits of 100 are made
-    Then the balance is 10000
+    When 100 deposits of 100p are made
+    Then the balance is 10000p

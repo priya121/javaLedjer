@@ -15,12 +15,12 @@ public class StepDefinitions {
     ledger = new Ledger();
   }
 
-  @When("^a deposit of (\\d+) is made$")
+  @When("^a deposit of (\\d+)p is made$")
   public void aDepositIsMade(int amount) {
     ledger.deposit(new Deposit(amount));
   }
 
-  @Then("^the balance is (\\d+)$")
+  @Then("^the balance is (\\d+)p$")
   public void theBalanceIs(int expectedBalance) {
     assertThat(ledger.getBalance()).isEqualTo(expectedBalance);
   }
