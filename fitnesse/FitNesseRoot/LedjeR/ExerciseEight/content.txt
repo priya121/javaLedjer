@@ -1,5 +1,0 @@
-Support unlimited transactions using LinkedList
-
-|script|empty ledger|
-|deposit|100|this many times|100|
-|check|balance|10000|
